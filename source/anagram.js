@@ -1,24 +1,15 @@
 'use strict';
 
+const anagram = inputArr => {
 
-let anagram = function(inputArr){
-
-  if (!Array.isArray(inputArr)) { //проверка того, что входной массиы вообще массив
+  if ((!inputArr.length)||(!Array.isArray(inputArr))) { //проверка того, что входной массиы вообще массив
     return [];
   }
-
-  if (!inputArr.length){
-    return [];
-  }
-
-  inputArr = inputArr.sort();
-
 
   let anagramBuffer = {};
   //ключ - упорядоченное отсортированное слово, хранится само слово по ключу
 
-  inputArr.forEach(word => {
-
+  inputArr.sort().forEach(word => {
 
     let sorted = word.toLowerCase().split('').sort().join('');
 
@@ -29,13 +20,16 @@ let anagram = function(inputArr){
     anagramBuffer[sorted].push(word);
   });
 
+  const outputArr = [];
 
-  let outputArr = [];
   for (const key in anagramBuffer) {
+
     if (anagramBuffer[key].length > 1) {
       outputArr.push(anagramBuffer[key]);
     }
+
   }
+
 
   return outputArr;
 };
