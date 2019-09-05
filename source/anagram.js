@@ -5,9 +5,9 @@ const anagram = inputArr => {
     return [];
   }
 
-  let anagramBuffer = {};
+  const anagramBuffer = {};
   inputArr.sort().forEach(word => {
-    let sorted = word
+    const sorted = word
                    .toLowerCase()
                    .split('')
                    .sort()
